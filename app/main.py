@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request, render_template
+from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 import os
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:3000"])
 model = load_model('model/cat_dog_classifier.h5')
 
 UPLOAD_FOLDER = 'static/uploads'
