@@ -20,9 +20,9 @@ def predict_image(image_path):
 
     prediction = model.predict(img_array)[0][0]
     if prediction > 0.5:
-        return 'This is a dog.'
+        return 'This is dog.'
     else:
-        return 'This is a cat.'
+        return 'This is cat.'
     
 
 @app.route('/', methods=['POST','GET'])

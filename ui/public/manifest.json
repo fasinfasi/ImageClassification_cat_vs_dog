@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CatDog",
+  "name": "Predict Cat or Dog",
+  "description": "A simple web app to predict whether an image is a cat or a dog.",
   "icons": [
     {
       "src": "favicon.ico",

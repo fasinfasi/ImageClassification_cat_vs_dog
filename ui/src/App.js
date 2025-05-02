@@ -1,14 +1,9 @@
+// src/App.js
 import React from "react";
-import './App.css';
 import ImageUpload from "./ImageUpload";
 
-function App(){
-  return (
-    <div className="App">
-      <h1>Image Classification</h1>
-      <ImageUpload />
-    </div>
-  );
+function App() {
+  return <ImageUpload />;
 }
 
 export default App;
