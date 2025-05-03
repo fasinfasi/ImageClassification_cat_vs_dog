@@ -1,258 +1,306 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-  }
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-panel {
+  width: 40%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+.overlay-text h1 {
+  font-size: 140px;
+  margin-bottom: 10px;
+}
+
+.overlay-text span {
+  font-weight: 400;
+  color: #b2f7ae;
+}
+
+.overlay-text .head-name {
+  font-weight: 750;
+  color: #16e507;
+}
+
+.overlay-text p {
+  font-size: 68px;
+  margin-top: 10px;
+}
+
+/* Right panel updates */
+.right-panel {
+  width: 60%;
+  background-image: url('../public/ag-square.png'); 
+  background-color: #e1e3e3c9;
+  background-blend-mode: multiply;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 90px;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.right-panel p {
+  font-size: 82px;
+  color: #555;
+}
+
+.drop-zone {
+  border: 2px dashed #2ecc71;
+  border-radius: 8px;
+  width: 70%;           /* Fixed width */
+  height: 60%;          /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 32px;        /* Adjusted for readability */
+  cursor: pointer;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;       /* Prevent image overflow */
+}
+
+
+.drop-zone:hover {
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.drop-image-preview {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.drop-zone.image-present {
+  border: none;
+  background: none;
+}
+
+button {
+  font-size: 20px;
+  padding: 40px 90px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-size: 70px;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
   
-  .container {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .left-panel {
-    width: 40%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: 1;
-  }
-  
-  .overlay-text {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-    padding: 30px;
-  }
-  
+.result {
+  font-size: 90px;
+  font-weight: bold;
+  color: #1500ff;
+}
+
+.error {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff0000;
+  margin-top: 10px;
+}
+
+@media (max-width: 1600px) {
   .overlay-text h1 {
-    font-size: 140px;
-    margin-bottom: 10px;
-  }
-  
-  .overlay-text span {
-    font-weight: 400;
-    color: #b2f7ae;
+    font-size: 55px;
   }
 
-  .overlay-text .head-name {
-    font-weight: 750;
-    color: #16e507;
-  }
-  
   .overlay-text p {
-    font-size: 68px;
-    margin-top: 10px;
-  }
-  
-  /* Right panel updates */
-  .right-panel {
-    width: 60%;
-    background-image: url('../public/ag-square.png'); 
-    background-color: #e1e3e3c9;
-    background-blend-mode: multiply;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    font-size: 24px;
   }
 
   h2 {
-    font-size: 90px;
-    margin-bottom: 50px;
-    color: #333;
+    font-size: 20px;
   }
 
-  .right-panel p {
-    font-size: 82px;
-    color: #555;
-  }
-
-  .drop-zone {
-    border: 2px dashed #2ecc71;
-    border-radius: 8px;
-    width: 70%;           /* Fixed width */
-    height: 60%;          /* Fixed height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    font-size: 32px;        /* Adjusted for readability */
-    cursor: pointer;
-    margin-bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.7);
-    transition: background-color 0.3s ease;
-    position: relative;
-    overflow: hidden;       /* Prevent image overflow */
-  }
-  
-
-  .drop-zone:hover {
-    background-color: rgba(46, 204, 113, 0.1);
-  }
-
-  .drop-image-preview {
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-    border-radius: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .drop-zone.image-present {
-    border: none;
-    background: none;
+  .drop-zone p{
+    font-size: 20px;
   }
   
   button {
     font-size: 20px;
-    padding: 40px 90px;
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    margin-top: 30px;
-    font-size: 70px;
+    padding: 10px 20px;
   }
-  
-  button:hover {
-    background-color: #27ae60;
+
+  .error {
+    font-size: 20px;
   }
-    
+
   .result {
-    font-size: 90px;
-    font-weight: bold;
-    color: #1500ff;
+    font-size: 24px;
   }
 
+}
 
-  @media (max-width: 1200px) {
-    .overlay-text h1 {
-      font-size: 70px;
-    }
-  
-    .overlay-text p {
-      font-size: 36px;
-    }
-  
-    h2 {
-      font-size: 30px;
-    }
-  
-    .right-panel p {
-      font-size: 24px;
-    }
-  
-    .drop-zone {
-      font-size: 22px;
-      height: 400px;
-      width: 85%;
-    }
-  
-    button {
-      font-size: 24px;
-      padding: 18px 40px;
-    }
-  
-    .result {
-      font-size: 50px;
-    }
+@media (max-width: 1200px) {
+  .overlay-text h1 {
+    font-size: 40px;
   }
-  
-  
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .left-panel, .right-panel {
-      width: 100%;
-    }
-  
-    .video-bg {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  
-    .overlay-text h1 {
-      font-size: 50px;
-    }
-  
-    .overlay-text p {
-      font-size: 24px;
-    }
-  
-    h2 {
-      font-size: 36px;
-      padding-right: 38px;
-    }
-  
-    .right-panel p {
-      font-size: 20px;
-    }
-  
-    .drop-zone {
-      font-size: 20px;
-      height: 300px;
-      width: 90%;
-    }
-  
-    button {
-      font-size: 30px;
-      padding: 20px 40px;
-    }
-  
-    .result {
-      font-size: 40px;
-    }
+
+  .overlay-text p {
+    font-size: 20px;
   }
-   
-  
-  @media (max-width: 480px) {
-    .overlay-text h1 {
-      font-size: 45px;
-    }
-  
-    .overlay-text p {
-      font-size: 24px;
-    }
-  
-    h2 {
-      font-size: 28px;
-    }
-  
-    .right-panel p {
-      font-size: 20px;
-    }
-  
-    .drop-zone {
-      height: 220px;
-    }
-  
-    button {
-      font-size: 24px;
-      padding: 15px 30px;
-    }
-  
-    .result {
-      font-size: 24px;
-    }
+
+  h2 {
+    font-size: 18px;
   }
-  
+
+  .right-panel p {
+    font-size: 16px;
+  }
+
+  .drop-zone {
+    font-size: 22px;
+    height: 300px;
+    width: 85%;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 15px 40px;
+  }
+
+  .result {
+    font-size: 23px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+  }
+
+  .video-bg {
+    height: 100%;
+    width: 100%;
+    margin-left: 90px;
+  }
+
+  .overlay-text h1 {
+    font-size: 30px;
+  }
+
+  .overlay-text p {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 22px;
+    padding-right: 38px;
+  }
+
+  .right-panel p {
+    font-size: 20px;
+  }
+
+  .drop-zone {
+    font-size: 20px;
+    height: 300px;
+    width: 90%;
+  }
+
+  button {
+    font-size: 22px;
+    padding: 14px 40px;
+  }
+
+  .result {
+    font-size: 30px;
+  }
+}
+ 
+
+@media (max-width: 480px) {
+  .overlay-text {
+    justify-content: center;
+    align-items: center;
+    margin-left: 73px;
+  }
+
+  .overlay-text h1 {
+    font-size: 25px;
+  }
+
+  .overlay-text p {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: 14px;
+    margin-left: 73px;
+  }
+
+  .right-panel p {
+    font-size: 16px;
+  }
+
+  .drop-zone {
+    height: 220px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 15px 30px;
+  }
+
+  .result {
+    font-size: 20px;
+  }
+
+  .error {
+    font-size: 18px;
+  }
+}

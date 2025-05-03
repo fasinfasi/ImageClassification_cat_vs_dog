@@ -4,16 +4,25 @@ import './ImageUpload.css';
 const ImageUpload = () => {
   const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const fileInputRef = useRef(null);
+  
+  // Use environment variable with fallback
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
+    setPrediction('');
+    setError('');
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
     const droppedFile = e.dataTransfer.files[0];
     setImage(droppedFile);
+    setPrediction('');
+    setError('');
   };
 
   const handleDragOver = (e) => {
@@ -25,19 +34,36 @@ const ImageUpload = () => {
   };
 
   const handleSubmit = async () => {
+    if (!image) {
+      setError('Please select an image first');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+    
     const formData = new FormData();
     formData.append('file', image);
 
     try {
-      const res = await fetch('http://localhost:5000/', {
+      console.log('Sending request to:', `${backendUrl}/predict`);
+      
+      const res = await fetch(`${backendUrl}/predict`, {
         method: 'POST',
         body: formData,
       });
+      
+      if (!res.ok) {
+        throw new Error(`Server responded with status: ${res.status}`);
+      }
 
       const data = await res.json();
       setPrediction(data.prediction);
     } catch (error) {
       console.error('Error:', error);
+      setError(`Failed to get prediction: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,7 +96,6 @@ const ImageUpload = () => {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-
           {image ? (
             <img
               src={URL.createObjectURL(image)}
@@ -85,10 +110,15 @@ const ImageUpload = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
             style={{ display: 'none' }}
+            accept="image/*"
           />
-      </div>
+        </div>
 
-        <button onClick={handleSubmit}>Predict</button>
+        <button onClick={handleSubmit} disabled={loading}>
+          {loading ? 'Processing...' : 'Predict'}
+        </button>
+        
+        {error && <div className="error">{error}</div>}
         {prediction && <div className="result">{prediction}</div>}
       </div>
     </div>

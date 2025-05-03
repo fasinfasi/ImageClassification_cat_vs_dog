@@ -1,0 +1,40 @@
+version: '3'
+services:
+  backend:
+    build: ./app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+      - backend_data:/app/static/uploads
+    restart: always
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./ui
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost:5000
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount only specific files/directories to avoid overwriting build artifacts
+      - ./ui/public:/app/public
+      - ./ui/src:/app/src
+    depends_on:
+      - backend
+    restart: always
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:5000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  backend_data:
