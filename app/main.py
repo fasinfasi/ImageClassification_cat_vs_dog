@@ -1,45 +1,46 @@
+from utils import predict_image
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-import numpy as np
+from werkzeug.utils import secure_filename
+import tempfile
 import os
 
 app = Flask(__name__)
 # Allow requests from both localhost and the Docker service name
 CORS(app, origins=["http://localhost:3000", "http://frontend:3000"])
 
-# Create uploads directory if it doesn't exist
-os.makedirs('static/uploads', exist_ok=True)
+# # Create uploads directory if it doesn't exist
+# os.makedirs('static/uploads', exist_ok=True)
 
-model = load_model('model/cat_dog_classifier.h5')
-
-UPLOAD_FOLDER = 'static/uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# UPLOAD_FOLDER = 'static/uploads'
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  
-def predict_image(image_path):
-    img = load_img(image_path, target_size=(150,150))
-    img_array = img_to_array(img)
-    img_array = np.expand_dims(img_array, axis=0)/255.0
     
-    prediction = model.predict(img_array)[0][0]
-    if prediction > 0.5:
-        return 'This is dog.'
-    else:
-        return 'This is cat.'
-    
-@app.route('/predict', methods=['POST','GET'])
-def home():
+@app.route('/predict', methods=['POST', 'GET'])
+def predict():
     if request.method == 'POST':
         if 'file' not in request.files:
             return jsonify({'error': 'No file part in the request'})
         file = request.files['file']
         if file.filename == '':
             return jsonify({'error': 'No selected file'})
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(file_path)
-        result = predict_image(file_path)
+
+        filename = secure_filename(file.filename)
+
+        # Use a temporary file for prediction
+        with tempfile.NamedTemporaryFile(delete=False, suffix=filename) as temp:
+            file.save(temp.name)
+            temp_path = temp.name
+
+        try:
+            result = predict_image(temp_path)
+        except Exception as e:
+            os.remove(temp_path)
+            return jsonify({'error': f'Prediction failed: {str(e)}'})
+
+        os.remove(temp_path)  # Clean up the file after use
         return jsonify({'prediction': result})
+
     return "Image Classification API is working"
 
 @app.route('/')
