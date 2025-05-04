@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+*.h5
+models/
+
 # testing
 /coverage
 
