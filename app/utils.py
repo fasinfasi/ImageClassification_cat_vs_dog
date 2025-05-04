@@ -6,7 +6,7 @@ from model_downloader import download_model_if_needed
 
 download_model_if_needed()
 
-model = load_model('model/cat_dog_classifier.h5')
+model = load_model('models/cat_dog_classifier.h5')
 
 def predict_image(image_path):
     img = load_img(image_path, target_size=(150,150))

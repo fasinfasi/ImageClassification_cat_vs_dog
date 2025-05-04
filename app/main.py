@@ -7,15 +7,8 @@ import os
 import requests
 
 app = Flask(__name__)
-# Allow requests from both localhost and the Docker service name
+
 CORS(app, origins=["https://catdo.onrender.com"], supports_credentials=True)
-
-# # Create uploads directory if it doesn't exist
-# os.makedirs('static/uploads', exist_ok=True)
-
-# UPLOAD_FOLDER = 'static/uploads'
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
- 
     
 
 @app.route('/predict', methods=['POST', 'GET'])
