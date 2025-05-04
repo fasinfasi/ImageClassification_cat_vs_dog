@@ -17,6 +17,7 @@ CORS(app, origins=["http://localhost:3000", "http://frontend:3000", "https://cat
 # app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  
     
+    
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     if request.method == 'POST':
