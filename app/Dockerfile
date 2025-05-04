@@ -9,6 +9,7 @@ COPY . .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
 
 # Expose the Flask default port
 EXPOSE 5000
