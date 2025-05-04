@@ -8,7 +8,7 @@ import requests
 
 app = Flask(__name__)
 
-CORS(app, origins=["https://catdo.onrender.com"], supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "*"}})
     
 
 @app.route('/predict', methods=['POST', 'GET'])
