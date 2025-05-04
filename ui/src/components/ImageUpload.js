@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../ImageUpload.css';
-import config from './config';
+import config from '../config';
 
 const ImageUpload = () => {
   const [image, setImage] = useState(null);
@@ -45,9 +45,9 @@ const ImageUpload = () => {
     formData.append('file', image);
 
     try {
-      console.log('Sending request to:', `${backendUrl}/predict`);
+      console.log('Sending request to:', `${config.API_URL}/predict`);
       
-      const res = await fetch(`${backendUrl}/predict`, {
+      const res = await fetch(`${config.API_URL}/predict`, {
         method: 'POST',
         body: formData,
       });
