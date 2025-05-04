@@ -4,6 +4,7 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import tempfile
 import os
+import requests
 
 app = Flask(__name__)
 # Allow requests from both localhost and the Docker service name

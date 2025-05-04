@@ -5,3 +5,4 @@ numpy
 pillow
 gunicorn==21.2.0
 h5py
+requests==2.32.3
