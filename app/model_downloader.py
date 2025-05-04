@@ -1,8 +1,7 @@
-
 import os
 import requests
 
-MODEL_URL = "https://www.dropbox.com/scl/fi/r14saaa1viqgbk3vx2dky/cat_dog_classifier.h5?rlkey=xaz078tyez50j209w8th86x40&st=344feoz2&dl=0"
+MODEL_URL = "https://www.dropbox.com/scl/fi/r14saaa1viqgbk3vx2dky/cat_dog_classifier.h5?rlkey=xaz078tyez50j209w8th86x40&st=344feoz2&dl=1"
 MODEL_PATH = "models/cat_dog_classifier.h5"
 
 def download_model_if_needed():
