@@ -8,7 +8,7 @@ import requests
 
 app = Flask(__name__)
 # Allow requests from both localhost and the Docker service name
-CORS(app, origins=["http://localhost:3000", "http://frontend:3000"])
+CORS(app, origins=["http://localhost:3000", "http://frontend:3000", "https://catdo.onrender.com"])
 
 # # Create uploads directory if it doesn't exist
 # os.makedirs('static/uploads', exist_ok=True)
