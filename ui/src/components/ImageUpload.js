@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../ImageUpload.css';
+import config from './config';
 
 const ImageUpload = () => {
   const [image, setImage] = useState(null);
@@ -8,8 +9,6 @@ const ImageUpload = () => {
   const [error, setError] = useState('');
   const fileInputRef = useRef(null);
   
-  // Use environment variable with fallback
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
