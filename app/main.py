@@ -4,11 +4,12 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import tempfile
 import os
-import requests
+
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "https://catdo.onrender.com"}})     
+CORS(app, resources={r"/*": {"origins": "https://catdo.onrender.com"}})   
+
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():

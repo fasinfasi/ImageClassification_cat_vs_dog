@@ -2,7 +2,7 @@ services:
   backend:
     build: ./app
     ports:
-      - "5000:5000"
+      - "8000:8000"
     volumes:
       - ./app:/app
     restart: always
@@ -15,7 +15,7 @@ services:
     build:
       context: ./ui
       args:
-        - REACT_APP_BACKEND_URL=http://localhost:5000
+        - REACT_APP_BACKEND_URL=https://catdo-backend-api.onrender.com
     ports:
       - "3000:3000"
     volumes:
@@ -25,7 +25,7 @@ services:
       - backend
     restart: always
     environment:
-      - REACT_APP_BACKEND_URL=http://localhost:5000
+      - REACT_APP_BACKEND_URL=https://catdo-backend-api.onrender.com
     networks:
       - app-network
 
