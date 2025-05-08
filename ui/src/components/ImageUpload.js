@@ -70,7 +70,7 @@ const ImageUpload = () => {
     <div className="container">
       <div className="left-panel">
         <video
-          className="video-bg"
+          className="video-bg portrait-video"
           autoPlay
           loop
           muted
@@ -79,7 +79,19 @@ const ImageUpload = () => {
           controlsList="nodownload nofullscreen noremoteplayback"
           controls={false}
         >
-          <source src="shorts_cat_dog.mp4" type="video/mp4" />
+          <source src="shorts_portrait.mp4" type="video/mp4" />
+        </video>
+        <video
+          className="video-bg landscape-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          controls={false}
+        >
+          <source src="shorts_landscape.mp4" type="video/mp4" />
         </video>
         <div className="overlay-text">
           <h1><span>I'm a<span className="head-name"> CatDo</span></span><br />Predictor</h1>
