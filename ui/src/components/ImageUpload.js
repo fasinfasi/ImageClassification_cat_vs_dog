@@ -100,6 +100,16 @@ const ImageUpload = () => {
       </div>
 
       <div className="right-panel">
+        <div className="download-button-wrapper">
+          <a
+            href="https://www.dropbox.com/scl/fo/yw79g909x9y15xeqc2wkz/AKkui3OE3E1eF9l-lqhIrlE?rlkey=4vmux3qv8p7sy9uuj7e2m53tc&st=ahtsag5c&dl=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-button"
+          >
+            Download Sample Images
+          </a>
+        </div>
         <h2>Upload image of cat or dog, I can detect what that is</h2>
         <div
           className={`drop-zone ${image ? 'image-present' : ''}`}
