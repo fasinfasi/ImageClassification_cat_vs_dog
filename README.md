@@ -1,5 +1,19 @@
 # 🐶🐱 Cat vs Dog Image Classifier 😺🐶
 
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Flask-1B2C59?logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Render-B05151?logo=render&logoColor=white" />
+  <img src="https://img.shields.io/badge/Machine%20Learning-013243?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/Keras-F38989?logo=keras&logoColor=white" />
+  <img src="https://img.shields.io/badge/CNN-947C39?logo=tensorflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/NumPy-D3C794?logo=numpy&logoColor=white" />
+</p>
+
 A deep learning project that classifies images as either **cat** or **dog** using a **Convolutional Neural Network (CNN)** built with **Keras**. The model is trained, evaluated, compressed and deployed as a Flask API and Dockerized for easy deployment.
 
 #### Dataset
