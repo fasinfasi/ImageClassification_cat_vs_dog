@@ -51,6 +51,11 @@ This project trains a CNN to classify images of cats and dogs using TensorFlow/K
 - Docker support for easy deployment
 - Render.com deployment-ready
 
+## Demo
+**Working Video:** [Click here](https://www.dropbox.com/scl/fi/l11lu9wj742xuprjrwgv6/CatDo-predictor.mp4?rlkey=uz8l8hq0ls9rsrgokg4os54bm&st=v6beon2x&dl=0)
+
+**Post:** [Click here](https://www.linkedin.com/posts/fasinfasi_what-are-you-kidding-me-in-2025-activity-7326422264621473792-o7_v?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3BfD8BjijEcsfQ3UqR8o2hIwaylWYirK0)
+
 ## ⛏ Tech Stack
 
 ---
